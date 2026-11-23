@@ -13,6 +13,16 @@ license-files = ["LICENSE"]
 requires-python = ">=3.12"
 authors = [{ name = "Vexy Lines Team", email = "help@vexy.art" }]
 dependencies = ["Markdown>=3.5"]
+keywords = ["markdown", "html", "figures", "margin figures"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Text Processing :: Markup :: HTML",
+    "Typing :: Typed",
+]
 
 [project.optional-dependencies]
 dev = ["pytest", "pytest-cov", "ruff", "mypy", "types-Markdown"]
@@ -22,7 +32,7 @@ Homepage = "https://github.com/vexyart/vexy-python-markdown-figure-groups"
 Repository = "https://github.com/vexyart/vexy-python-markdown-figure-groups"
 
 [project.entry-points."markdown.extensions"]
-figure_groups = "vexy_markdown_figure_groups:FigureGroupsExtension"
+vexy_figure_groups = "vexy_markdown_figure_groups:FigureGroupsExtension"
 
 [tool.hatch.version]
 source = "vcs"

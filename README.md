@@ -1,6 +1,4 @@
----
-this_file: README.md
----
+<!-- this_file: README.md -->
 
 # vexy-python-markdown-figure-groups
 
@@ -9,11 +7,13 @@ and its text in one HTML block and gives your stylesheet a paragraph count.
 
 ## Install
 
-Requires Python 3.12 or later. From this checkout, run the following command in
-the environment used to render your site.
+Requires Python 3.12 or later. Install the `vexy-python-markdown-figure-groups`
+distribution and import it as `vexy_markdown_figure_groups`.
 
 ```sh
-uv pip install .
+pip install vexy-python-markdown-figure-groups
+# Or, in a uv project
+uv add vexy-python-markdown-figure-groups
 ```
 
 ## Before and after
@@ -46,7 +46,7 @@ of `script`, `style`, `pre` and `textarea`. Running it twice keeps a single wrap
 
 ## Use with Python-Markdown
 
-Enable the `figure_groups` extension to group figures in Markdown's final HTML,
+Enable the `vexy_figure_groups` extension to group figures in Markdown's final HTML,
 after the renderer restores raw HTML blocks.
 
 ```python
@@ -57,11 +57,11 @@ text = """The crossbar sits below the centre of the A.
 <figure class="img-small"><img src="a.svg" alt="A with a low crossbar"></figure>
 
 This leaves room for the counter above."""
-html = markdown.markdown(text, extensions=["md_in_html", "attr_list", "figure_groups"])
+html = markdown.markdown(text, extensions=["md_in_html", "attr_list", "vexy_figure_groups"])
 ```
 
 Pass options through `extension_configs`, for example
-`extension_configs={"figure_groups": {"group_class": "margin-note"}}`.
+`extension_configs={"vexy_figure_groups": {"group_class": "margin-note"}}`.
 
 ## Use with rendered HTML
 
@@ -108,5 +108,13 @@ Cut figures can float into the text instead.
   .figure-group-cut > figure { float: right; width: 35%; margin: 0 0 1rem 1.5rem; }
 }
 ```
+
+## Releasing
+
+For the first release, build from a clean checkout at the local `v0.1.0` tag
+with `uv build`, then run `uv publish` on that machine using a PyPI API token.
+In the project's PyPI publishing settings, register a GitHub trusted publisher
+for `vexyart/vexy-python-markdown-figure-groups`, workflow `release.yml`,
+environment `pypi`. Push a new `v*` tag for each subsequent release.
 
 Licensed under Apache-2.0.

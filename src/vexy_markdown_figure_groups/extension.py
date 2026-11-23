@@ -31,7 +31,7 @@ class FigureGroupsExtension(Extension):
         super().__init__(**kwargs)
 
     def extendMarkdown(self, md: Markdown) -> None:
-        md.postprocessors.register(_FigureGroupsPostprocessor(md, self), "figure_groups", -100)
+        md.postprocessors.register(_FigureGroupsPostprocessor(md, self), "vexy_figure_groups", -100)
 
 
 def makeExtension(**kwargs: object) -> FigureGroupsExtension:

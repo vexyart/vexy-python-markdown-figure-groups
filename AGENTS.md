@@ -11,8 +11,7 @@ rendered HTML produce the same result.
 Run from the project root on Python 3.13.
 
 ```sh
-uv venv --python 3.13
-uv pip install -e ".[dev]"
+uv sync --all-extras --python 3.13
 uv run pytest -q
 uv run ruff check .
 uv run ruff format --check .
@@ -21,6 +20,6 @@ uv build
 ```
 
 The tests cover grouping, option validation and the installed Markdown entry
-point. The parity tests also compare output with the original Fly theme when
-its checkout is available. The wheel must include the `figure_groups` entry
-point in `markdown.extensions` and the generated `__version__.py`.
+point. The parity tests compare output with golden HTML from the original Fly
+theme. The wheel must include the `vexy_figure_groups` entry point in
+`markdown.extensions`, the generated `__version__.py` and the `py.typed` marker.
